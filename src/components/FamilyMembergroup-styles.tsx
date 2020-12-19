@@ -6,8 +6,8 @@ interface ContainerProps {
 }
 
 interface HeaderProps {
-  borderTopLeft: boolean;
-  borderTopRight: boolean;
+  borderTopLeft: string;
+  borderTopRight: string;
 }
 
 interface FooterProps {
@@ -36,11 +36,11 @@ const Header = styled.div<HeaderProps>`
   }
 
   div:first-child {
-    border-top-color: ${props => props.borderTopLeft ? '#ccc' : 'transparent'};
+    border-top-color: ${props => props.borderTopLeft};
   }
 
   div:last-child {
-    border-top-color: ${props => props.borderTopRight ? '#ccc' : 'transparent'};
+    border-top-color: ${props => props.borderTopRight};
   }
 `;
 

@@ -8,17 +8,20 @@ interface FamilyMemberGroupProps {
   members: FamilyTreeMember[];
   row: number;
   col: number;
-  borderTopLeft: boolean;
-  borderTopRight: boolean;
+  displayTopLeftBorder: boolean;
+  displayTopRightBorder: boolean;
 }
 
 export default function FamilyMemberGroup({
   members,
   row,
   col,
-  borderTopLeft,
-  borderTopRight,
+  displayTopLeftBorder,
+  displayTopRightBorder,
 }: FamilyMemberGroupProps) {
+  const borderTopLeft = displayTopLeftBorder ? '#ccc' : 'transparent';
+  const borderTopRight = displayTopRightBorder ? '#ccc' : 'transparent';
+
   const membersList = members.map((member, i) => {
     const marginBottom = i === 0 ? '1rem' : '0';
 
