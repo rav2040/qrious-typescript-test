@@ -22,9 +22,9 @@ function App() {
 
   const createTreeElement = (node: FamilyTreeNode, row = 1, col = -1, index?: SiblingIndex) => {
     if (node.children) {
-      // The members of this node have children
+      // The members of this node have children.
       for (const [i, childNode] of node.children.entries()) {
-        // Calculate grid row and column for the child node
+        // Calculate grid row and column for the child node.
         const childGridRow = row + 1;
         const childGridCol = calculateGridCol(i, node.children.length, col);
 
@@ -34,31 +34,34 @@ function App() {
         // used for deciding which connecting lines should be drawn above child nodes.
         if (node.children.length !== 1) {
           if (i === 0) {
+            // Is the first sibling.
             childSiblingIndex = SiblingIndex.Start;
           }
 
           else if (i === node.children.length - 1) {
+            // Is the last sibling.
             childSiblingIndex = SiblingIndex.End;
           }
 
           else {
+            // Is a middle sibling.
             childSiblingIndex = SiblingIndex.Middle;
           }
         }
 
-        // Create the element for this node and add it to the elements array.
+        // Create the element for this node and add it to the tree list.
         createTreeElement(childNode, childGridRow, childGridCol, childSiblingIndex);
       }
     }
 
     // Only show a top-left border if this node is a middle or end sibling.
-    const borderTopLeft = (
+    const displayTopLeftBorder = (
       index === SiblingIndex.Middle ||
       index === SiblingIndex.End
     );
 
     // Only show a top-right border if this node is a start or middle sibling.
-    const borderTopRight = (
+    const displayTopRightBorder = (
       index === SiblingIndex.Start ||
       index === SiblingIndex.Middle
     );
@@ -68,15 +71,15 @@ function App() {
       members={node.members}
       row={row}
       col={col}
-      borderTopLeft={borderTopLeft}
-      borderTopRight={borderTopRight}
+      displayTopLeftBorder={displayTopLeftBorder}
+      displayTopRightBorder={displayTopRightBorder}
     />;
 
     treeList.push(element);
   };
 
   if (treeObj) {
-    // Recursively create all elements of the tree and add them to the elements array.
+    // Recursively create all elements of the tree and add them to the tree list.
     createTreeElement(treeObj);
   }
 
@@ -93,7 +96,7 @@ function App() {
 }
 
 /**
- * Calculates the grid column index of a child element based on its index
+ * Calculates the grid column index of a child element based on its position
  * relative to its siblings.
  */
 

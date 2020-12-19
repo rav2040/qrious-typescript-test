@@ -11,7 +11,7 @@ export interface FamilyTreeNode {
 }
 
 /**
- * Returns an object containing the name and gender of the provided family member.
+ * Returns a new object containing the name and gender of the provided family member.
  */
 
 function createParent({ name, gender }: FamilyMember): FamilyTreeMember {
@@ -83,6 +83,7 @@ function createTreeNode(member: FamilyMember, members: FamilyMember[]): FamilyTr
     createTreeNode(member, members)
   ));
 
+  // Member has a partner and children.
   return {
     members: [
       createParent(member),
