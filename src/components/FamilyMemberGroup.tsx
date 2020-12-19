@@ -2,7 +2,7 @@ import type { FamilyTreeMember } from '../api/create-tree';
 
 import React from 'react';
 import FamilyMember from './FamilyMember';
-import { div } from './FamilyMembergroup-styles';
+import { div } from './FamilyMemberGroup-styles';
 
 interface FamilyMemberGroupProps {
   members: FamilyTreeMember[];
