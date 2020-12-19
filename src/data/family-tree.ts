@@ -1,10 +1,4 @@
-export interface FamilyMember {
-  id: string;
-  name: string;
-  gender: 'male' | 'female';
-  parents: string[];
-  children: string[];
-}
+import type { FamilyMember } from '../components/FamilyTree';
 
 export const familyTree: FamilyMember[] = [
   {
