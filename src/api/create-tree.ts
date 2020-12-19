@@ -1,4 +1,4 @@
-import type { FamilyMember } from '../data/family-tree';
+import type { FamilyMember } from '../components/FamilyTree';
 
 export interface FamilyTreeMember {
   name: string;
