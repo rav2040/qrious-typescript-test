@@ -5,8 +5,10 @@ export interface FamilyTreeMember {
   gender: 'male' | 'female';
 }
 
+export type FamilyTreeParents = readonly [FamilyTreeMember, FamilyTreeMember?];
+
 export interface FamilyTreeNode {
-  members: FamilyTreeMember[];
+  members: FamilyTreeParents;
   children?: FamilyTreeNode[];
 }
 

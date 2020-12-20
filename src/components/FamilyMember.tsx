@@ -5,10 +5,10 @@ import { div, p } from './FamilyMember-styles';
 interface FamilyMemberProps {
   name: string;
   color: 'lightpink' | 'lightblue';
-  marginBottom: string;
+  marginBottom?: string;
 }
 
-export default function FamilyMember({ name, color, marginBottom }: FamilyMemberProps) {
+export default function FamilyMember({ name, color, marginBottom = '0' }: FamilyMemberProps) {
   return (
     <div.Container backgroundColor={color} marginBottom={marginBottom}>
       <PeopleIcon />
